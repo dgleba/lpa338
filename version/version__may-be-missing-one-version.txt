@@ -1,0 +1,61 @@
+commit 7452934e53649095703e2c5a38eac44d6293d886
+Author: David Gleba <dgleba@gmail.com>
+Date:   Thu Nov 17 22:20:55 2016 -0500
+
+    turn off pre-push
+
+commit a7da04d29c3908da3307815fd812d45b1612e3b9
+Author: David Gleba <dgleba@gmail.com>
+Date:   Thu Nov 17 22:19:52 2016 -0500
+
+    add 4-box search most fields to vehicle
+
+commit d642a4e365739224abd388d6ed843c93ace426ba
+Author: David Gleba <dgleba@gmail.com>
+Date:   Thu Nov 17 20:03:32 2016 -0500
+
+    misc 2
+
+commit 4fefa7718c9329bbb6ce0aba8228eabc090c1039
+Author: David Gleba <dgleba@gmail.com>
+Date:   Thu Nov 17 20:01:47 2016 -0500
+
+    misc
+
+commit 5914fbf7cf30ea4a1448beb1c744debe6aba1cf5
+Author: David Gleba <dgleba@gmail.com>
+Date:   Thu Nov 17 19:55:13 2016 -0500
+
+    readme, version, hooks
+    
+    Signed-off-by: David Gleba <dgleba@gmail.com>
+
+commit 61ca1f5d25d257026ceb97763eabaa4f922b383b
+Author: David Gleba <dgleba@gmail.com>
+Date:   Tue Nov 1 19:43:22 2016 -0400
+
+    1101
+
+commit 7c88e2945b8aa2faf1647408b9dcd31c8b6c6ebb
+Author: David Gleba <dgleba@gmail.com>
+Date:   Sun Oct 30 19:45:27 2016 -0400
+
+    Add print page - show views.
+
+commit b7d57890cb436f46fa3cd2a92237d511bd1df41c
+Author: David Gleba <dgleba@gmail.com>
+Date:   Sun Oct 30 11:53:06 2016 -0400
+
+    misc
+
+commit a061dbfa947131eb004b5e5307ba7ab3c2061c89
+Author: David Gleba <dgleba@gmail.com>
+Date:   Sat Oct 29 17:04:15 2016 -0400
+
+    Limit Customers access to only the user who created it.
+
+commit 75f97e156f5665b95d8700988668892cd7286a65
+Author: David Gleba <dgleba@gmail.com>
+Date:   Sat Oct 29 15:37:30 2016 -0400
+
+    add user who created record to customers

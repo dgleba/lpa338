@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mtimestore -r
+
+#git update-index --refresh #causes some problems under windows tortoise git
+
+  cp -rfp util/hooks/* .git/hooks
+ 
+  git log  -n 10 > version/version__may-be-missing-one-version.txt

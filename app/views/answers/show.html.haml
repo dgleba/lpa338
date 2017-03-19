@@ -1,0 +1,20 @@
+%h1= Answer.model_name.human.singularize
+
+%dl.dl-horizontal
+  %dt= Answer.human_attribute_name :body
+  %dd= @answer.body
+  %dt= Answer.human_attribute_name :choice
+  %dd= @answer.choice
+  %dt= Answer.human_attribute_name :question
+  %dd= @answer.question
+  %dt= Answer.human_attribute_name :response
+  %dd= @answer.response
+  %dt= Answer.human_attribute_name :issue
+  %dd= @answer.issue
+  %dt= Answer.human_attribute_name :action
+  %dd= @answer.action
+
+= link_to t('actions.edit'), edit_answer_path(@answer), class: 'btn btn-primary'
+&nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp
+= link_to t('actions.back'), answers_path
+%hr

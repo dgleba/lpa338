@@ -1,0 +1,16 @@
+= simple_form_for(@answer) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :body
+    = f.association :choice
+    = f.association :question
+    = f.association :response
+    = f.input :issue
+    = f.input :action
+
+  .form-actions
+    = f.button :submit
+    &nbsp &nbsp | &nbsp &nbsp
+    = link_to t('actions.back'), answers_path
+  %hr

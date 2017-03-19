@@ -1,0 +1,18 @@
+%h1= Question.model_name.human.singularize
+
+%dl.dl-horizontal
+  %dt= Question.human_attribute_name :name
+  %dd= @question.name
+  %dt= Question.human_attribute_name :question_list
+  %dd= @question.question_list
+  %dt= Question.human_attribute_name :sort
+  %dd= @question.sort
+  %dt= Question.human_attribute_name :qtype
+  %dd= @question.qtype
+  %dt= Question.human_attribute_name :survey
+  %dd= @question.survey
+
+= link_to t('actions.edit'), edit_question_path(@question), class: 'btn btn-primary'
+&nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp
+= link_to t('actions.back'), questions_path
+%hr

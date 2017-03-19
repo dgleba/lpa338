@@ -1,0 +1,13 @@
+= simple_form_for(@response) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :survey
+    = f.association :user
+    = f.input :ip
+
+  .form-actions
+    = f.button :submit
+    &nbsp &nbsp | &nbsp &nbsp
+    = link_to t('actions.back'), responses_path
+  %hr

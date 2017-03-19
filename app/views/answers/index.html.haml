@@ -1,0 +1,51 @@
+.container-fluid
+
+.row
+  .col-sm-2.col-md-3.col-lg-3{:style => "background-color:white;"}
+    %ul.list-inline
+      %li
+        = link_to t('actions.create'), new_answer_path, class: 'btn btn-primary'
+      %li 
+        %h4{:class => "vcenter", :style => "color:black;margin-left:1px;"}= Answer.model_name.human
+  .col-sm-4.col-md-4.col-lg-4{:style => "background-color:white;"}
+    = search_form_for @q, class: 'search-form ' do |f|
+      .input-group
+        = f.search_field :body_cont, class: 'form-control'
+        %span.input-group-btn
+          %button.btn.btn-primary
+            %i.fa.fa-search    
+
+  .col-sm-2.col-md-2.col-lg-2{:style => "background-color:white;"}
+    %a{:href => "#"} Search-2(ComingSoon)
+
+  .col-sm-2.col-md-2.col-lg-2{:style => "background-color:white;"}
+    = page_entries_info @answers, :entry_name => 'item'
+            
+= paginate @answers
+    
+ 
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th
+      %th= sort_link(@q, :body, Answer.human_attribute_name(:body))
+      %th= sort_link(@q, :choice, Answer.human_attribute_name(:choice))
+      %th= sort_link(@q, :question, Answer.human_attribute_name(:question))
+      %th= sort_link(@q, :response, Answer.human_attribute_name(:response))
+      %th= sort_link(@q, :issue, Answer.human_attribute_name(:issue))
+      %th= sort_link(@q, :action, Answer.human_attribute_name(:action))
+
+  %tbody
+    - @answers.each do |answer|
+      %tr
+        %td= link_to t('actions.show'), answer, class: 'btn btn-primary'
+        %td= link_to t('actions.edit'), edit_answer_path(answer)
+        %td= answer.body
+        %td= answer.choice
+        %td= answer.question
+        %td= answer.response
+        %td= answer.issue
+        %td= answer.action
+
+= paginate @answers

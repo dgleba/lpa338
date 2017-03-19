@@ -1,0 +1,15 @@
+= simple_form_for(@question) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.association :question_list
+    = f.input :sort
+    = f.input :qtype
+    = f.association :survey
+
+  .form-actions
+    = f.button :submit
+    &nbsp &nbsp | &nbsp &nbsp
+    = link_to t('actions.back'), questions_path
+  %hr

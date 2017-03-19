@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118031401) do
+ActiveRecord::Schema.define(version: 20170319031915) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "choice_id"
+    t.integer  "question_id"
+    t.integer  "response_id"
+    t.string   "issue"
+    t.text     "action"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["choice_id"], name: "index_answers_on_choice_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["response_id"], name: "index_answers_on_response_id"
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -36,54 +51,46 @@ ActiveRecord::Schema.define(version: 20161118031401) do
   add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid"
   add_index "audits", ["user_id", "user_type"], name: "user_index"
 
-  create_table "customers", force: :cascade do |t|
+  create_table "choices", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.float    "discount"
+    t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.string   "dummy1"
-    t.string   "rsackdummy2"
-    t.string   "rsackdummy3"
   end
 
-  add_index "customers", ["user_id"], name: "index_customers_on_user_id"
+  add_index "choices", ["question_id"], name: "index_choices_on_question_id"
 
-  create_table "pasenger_lists", force: :cascade do |t|
-    t.string   "clocknum"
+  create_table "question_lists", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sort"
+    t.integer  "active_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "passengers", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
-    t.text     "output"
-    t.integer  "rental_record_id"
-    t.integer  "pasenger_list_id"
+    t.integer  "question_list_id"
+    t.integer  "sort"
+    t.integer  "qtype"
+    t.integer  "survey_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "passengers", ["pasenger_list_id"], name: "index_passengers_on_pasenger_list_id"
-  add_index "passengers", ["rental_record_id"], name: "index_passengers_on_rental_record_id"
+  add_index "questions", ["question_list_id"], name: "index_questions_on_question_list_id"
+  add_index "questions", ["survey_id"], name: "index_questions_on_survey_id"
 
-  create_table "rental_records", force: :cascade do |t|
-    t.integer  "customer_id"
-    t.integer  "vehicle_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "lastUpdated"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "responses", force: :cascade do |t|
+    t.integer  "survey_id"
+    t.integer  "user_id"
+    t.string   "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "rental_records", ["customer_id"], name: "index_rental_records_on_customer_id"
-  add_index "rental_records", ["vehicle_id"], name: "index_rental_records_on_vehicle_id"
+  add_index "responses", ["survey_id"], name: "index_responses_on_survey_id"
+  add_index "responses", ["user_id"], name: "index_responses_on_user_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -91,6 +98,15 @@ ActiveRecord::Schema.define(version: 20161118031401) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "surveys", ["user_id"], name: "index_surveys_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -114,21 +130,6 @@ ActiveRecord::Schema.define(version: 20161118031401) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["role_id"], name: "index_users_on_role_id"
-
-  create_table "vehicles", force: :cascade do |t|
-    t.string   "veh_reg_no"
-    t.string   "category"
-    t.string   "name"
-    t.string   "desc"
-    t.binary   "photo"
-    t.decimal  "daily_rate"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "features"
-    t.string   "color"
-    t.string   "rsackdummy2"
-    t.string   "rsackdummy3"
-  end
 
   create_table "version_associations", force: :cascade do |t|
     t.integer "version_id"

@@ -1,0 +1,12 @@
+= simple_form_for(@choice) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.association :question
+
+  .form-actions
+    = f.button :submit
+    &nbsp &nbsp | &nbsp &nbsp
+    = link_to t('actions.back'), choices_path
+  %hr

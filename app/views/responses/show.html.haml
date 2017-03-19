@@ -1,0 +1,14 @@
+%h1= Response.model_name.human.singularize
+
+%dl.dl-horizontal
+  %dt= Response.human_attribute_name :survey
+  %dd= @response.survey
+  %dt= Response.human_attribute_name :user
+  %dd= @response.user
+  %dt= Response.human_attribute_name :ip
+  %dd= @response.ip
+
+= link_to t('actions.edit'), edit_response_path(@response), class: 'btn btn-primary'
+&nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp
+= link_to t('actions.back'), responses_path
+%hr

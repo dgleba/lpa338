@@ -1,0 +1,12 @@
+= simple_form_for(@survey) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.association :user
+
+  .form-actions
+    = f.button :submit
+    &nbsp &nbsp | &nbsp &nbsp
+    = link_to t('actions.back'), surveys_path
+  %hr

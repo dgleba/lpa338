@@ -1,0 +1,12 @@
+%h1= Choice.model_name.human.singularize
+
+%dl.dl-horizontal
+  %dt= Choice.human_attribute_name :name
+  %dd= @choice.name
+  %dt= Choice.human_attribute_name :question
+  %dd= @choice.question
+
+= link_to t('actions.edit'), edit_choice_path(@choice), class: 'btn btn-primary'
+&nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp
+= link_to t('actions.back'), choices_path
+%hr

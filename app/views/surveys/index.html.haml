@@ -30,7 +30,6 @@
       %th
       %th
       %th= sort_link(@q, :name, Survey.human_attribute_name(:name))
-      %th= sort_link(@q, :user, Survey.human_attribute_name(:user))
 
   %tbody
     - @surveys.each do |survey|
@@ -38,6 +37,5 @@
         %td= link_to t('actions.show'), survey, class: 'btn btn-primary'
         %td= link_to t('actions.edit'), edit_survey_path(survey)
         %td= survey.name
-        %td= survey.user
 
 = paginate @surveys

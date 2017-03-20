@@ -3,8 +3,6 @@
 %dl.dl-horizontal
   %dt= Survey.human_attribute_name :name
   %dd= @survey.name
-  %dt= Survey.human_attribute_name :user
-  %dd= @survey.user
 
 = link_to t('actions.edit'), edit_survey_path(@survey), class: 'btn btn-primary'
 &nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp

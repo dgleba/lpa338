@@ -11,6 +11,8 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'im
 # already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
+Rails.application.config.assets.precompile += %w( cocoon.js )
+
 # Short hand for adding images and font's into the asset pipeline
 Rails.application.config.assets.precompile.push(proc do |path|
   File.extname(path).in? [

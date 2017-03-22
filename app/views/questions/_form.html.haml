@@ -8,6 +8,13 @@
     = f.input :sort
     = f.input :active_status
 
+  %h3 Choices
+  #choices
+    = f.simple_fields_for :choices do |choice|
+      = render 'choice_fields', f: choice
+    .links
+      = link_to_add_association 'add choice', f, :choices
+     
   .form-actions
     = f.button :submit
     &nbsp &nbsp | &nbsp &nbsp

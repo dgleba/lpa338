@@ -63,6 +63,6 @@ class ResponsesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def response_params
-    params.require(:response).permit(:name, :survey_id, :user_id, :ip)
+    params.require(:response).permit(:name, :survey_id, :user_id, :ip, answers_attributes: [:id, :name,  :sort, :_destroy], questions_attributes: [:id, :name, :_destroy], choices_attributes: [:id, :name, :_destroy])
   end
 end

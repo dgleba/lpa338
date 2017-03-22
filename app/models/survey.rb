@@ -2,6 +2,8 @@ class Survey < ActiveRecord::Base
 
   has_many :questions, inverse_of: :survey   
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
+  
+  
 
   def to_s
     # show columns contents, not record object like:  #<Vehicle:0x007f343b3f2890> 2016-06-08  Details Edit  Delete

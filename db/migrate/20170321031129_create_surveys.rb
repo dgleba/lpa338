@@ -1,6 +1,6 @@
-class CreateQuestionLists < ActiveRecord::Migration
+class CreateSurveys < ActiveRecord::Migration
   def change
-    create_table :question_lists do |t|
+    create_table :surveys do |t|
       t.string :name
       t.integer :sort
       t.integer :active_status

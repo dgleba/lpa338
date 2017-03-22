@@ -5,6 +5,10 @@
   %dd= @choice.name
   %dt= Choice.human_attribute_name :question
   %dd= @choice.question
+  %dt= Choice.human_attribute_name :sort
+  %dd= @choice.sort
+  %dt= Choice.human_attribute_name :active_status
+  %dd= @choice.active_status
 
 = link_to t('actions.edit'), edit_choice_path(@choice), class: 'btn btn-primary'
 &nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp

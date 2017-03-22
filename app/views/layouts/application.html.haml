@@ -6,7 +6,7 @@
         %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
           %title lpa338
           /
-            rail263
+            lpa338
             version: #{Rails.application.config.version} (#{l(Rails.application.config.version_time)})
 
           = stylesheet_link_tag    'application', media: 'all'
@@ -27,15 +27,18 @@
             %span.icon-bar
 
 
-          = link_to 'rail263', root_path, class: 'navbar-brand'
+          = link_to 'lpa338', root_path, class: 'navbar-brand'
 
 
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
 
+            %li= link_to 'Answers', answers_path
+            %li= link_to 'Responses', responses_path
+            %li= link_to 'Choices', choices_path
+            %li= link_to 'Questions', questions_path
             %li= link_to 'Surveys', surveys_path
-            / %li= link_to 'Vehicles', vehicles_path
-            / %li= link_to 'RentalRecords', rental_records_path
+            /%li= link_to 'QuestionLists', question_lists_path
 
           %ul.nav.navbar-nav.navbar-right
 

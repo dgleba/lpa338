@@ -3,6 +3,10 @@
 %dl.dl-horizontal
   %dt= Survey.human_attribute_name :name
   %dd= @survey.name
+  %dt= Survey.human_attribute_name :sort
+  %dd= @survey.sort
+  %dt= Survey.human_attribute_name :active_status
+  %dd= @survey.active_status
 
 = link_to t('actions.edit'), edit_survey_path(@survey), class: 'btn btn-primary'
 &nbsp &nbsp &nbsp|&nbsp &nbsp &nbsp

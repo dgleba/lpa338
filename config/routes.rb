@@ -1,11 +1,32 @@
 Rails.application.routes.draw do
 
 
+  resources :answers
+  resources :responses
+  resources :surveys
+  resources :questions
+  resources :choices
+  resources :answers
+  resources :responses
+  resources :surveys
+  resources :questions
+  resources :responses
+  resources :surveys
+  resources :choices
+  resources :answers
+  resources :responses
+  resources :surveys
+  resources :choices
+  resources :answers
+  resources :responses
+  resources :surveys
+  resources :questions
+  resources :choices
+  resources :answers
   resources :surveys
   #
   resources :responses
   resources :surveys
-  resources :question_lists
   resources :questions
   resources :choices
   resources :answers

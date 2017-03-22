@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319031915) do
+ActiveRecord::Schema.define(version: 20170322020049) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -54,34 +54,28 @@ ActiveRecord::Schema.define(version: 20170319031915) do
   create_table "choices", force: :cascade do |t|
     t.string   "name"
     t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "choices", ["question_id"], name: "index_choices_on_question_id"
-
-  create_table "question_lists", force: :cascade do |t|
-    t.string   "name"
     t.integer  "sort"
     t.integer  "active_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
+  add_index "choices", ["question_id"], name: "index_choices_on_question_id"
+
   create_table "questions", force: :cascade do |t|
     t.string   "name"
-    t.integer  "question_list_id"
-    t.integer  "sort"
     t.integer  "qtype"
     t.integer  "survey_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "sort"
+    t.integer  "active_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "questions", ["question_list_id"], name: "index_questions_on_question_list_id"
   add_index "questions", ["survey_id"], name: "index_questions_on_survey_id"
 
   create_table "responses", force: :cascade do |t|
+    t.string   "name"
     t.integer  "survey_id"
     t.integer  "user_id"
     t.string   "ip"
@@ -101,12 +95,11 @@ ActiveRecord::Schema.define(version: 20170319031915) do
 
   create_table "surveys", force: :cascade do |t|
     t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sort"
+    t.integer  "active_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
-
-  add_index "surveys", ["user_id"], name: "index_surveys_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

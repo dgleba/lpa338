@@ -30,10 +30,10 @@
       %th
       %th
       %th= sort_link(@q, :name, Question.human_attribute_name(:name))
-      %th= sort_link(@q, :question_list, Question.human_attribute_name(:question_list))
-      %th= sort_link(@q, :sort, Question.human_attribute_name(:sort))
       %th= sort_link(@q, :qtype, Question.human_attribute_name(:qtype))
       %th= sort_link(@q, :survey, Question.human_attribute_name(:survey))
+      %th= sort_link(@q, :sort, Question.human_attribute_name(:sort))
+      %th= sort_link(@q, :active_status, Question.human_attribute_name(:active_status))
 
   %tbody
     - @questions.each do |question|
@@ -41,9 +41,9 @@
         %td= link_to t('actions.show'), question, class: 'btn btn-primary'
         %td= link_to t('actions.edit'), edit_question_path(question)
         %td= question.name
-        %td= question.question_list
-        %td= question.sort
         %td= question.qtype
         %td= question.survey
+        %td= question.sort
+        %td= question.active_status
 
 = paginate @questions

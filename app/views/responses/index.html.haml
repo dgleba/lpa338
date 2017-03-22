@@ -10,7 +10,7 @@
   .col-sm-4.col-md-4.col-lg-4{:style => "background-color:white;"}
     = search_form_for @q, class: 'search-form ' do |f|
       .input-group
-        = f.search_field :survey_cont, class: 'form-control'
+        = f.search_field :name_cont, class: 'form-control'
         %span.input-group-btn
           %button.btn.btn-primary
             %i.fa.fa-search    
@@ -29,6 +29,7 @@
     %tr
       %th
       %th
+      %th= sort_link(@q, :name, Response.human_attribute_name(:name))
       %th= sort_link(@q, :survey, Response.human_attribute_name(:survey))
       %th= sort_link(@q, :user, Response.human_attribute_name(:user))
       %th= sort_link(@q, :ip, Response.human_attribute_name(:ip))
@@ -38,8 +39,11 @@
       %tr
         %td= link_to t('actions.show'), response, class: 'btn btn-primary'
         %td= link_to t('actions.edit'), edit_response_path(response)
+        %td= response.name
         %td= response.survey
         %td= response.user
         %td= response.ip
+        %td= response.created_at
+        %td= response.id
 
 = paginate @responses

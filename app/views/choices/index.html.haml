@@ -31,6 +31,8 @@
       %th
       %th= sort_link(@q, :name, Choice.human_attribute_name(:name))
       %th= sort_link(@q, :question, Choice.human_attribute_name(:question))
+      %th= sort_link(@q, :sort, Choice.human_attribute_name(:sort))
+      %th= sort_link(@q, :active_status, Choice.human_attribute_name(:active_status))
 
   %tbody
     - @choices.each do |choice|
@@ -39,5 +41,7 @@
         %td= link_to t('actions.edit'), edit_choice_path(choice)
         %td= choice.name
         %td= choice.question
+        %td= choice.sort
+        %td= choice.active_status
 
 = paginate @choices

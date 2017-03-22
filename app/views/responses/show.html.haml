@@ -1,6 +1,8 @@
 %h1= Response.model_name.human.singularize
 
 %dl.dl-horizontal
+  %dt= Response.human_attribute_name :name
+  %dd= @response.name
   %dt= Response.human_attribute_name :survey
   %dd= @response.survey
   %dt= Response.human_attribute_name :user

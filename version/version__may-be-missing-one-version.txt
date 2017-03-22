@@ -1,3 +1,9 @@
+commit d9ee45dc91160db835c6e269f1a68e57a2c01bf2
+Author: David Gleba <dgleba@gmail.com>
+Date:   Sun Mar 19 20:11:41 2017 -0400
+
+    rescaffold survey
+
 commit 4028fce2bda1f7aa9aaa5451e62f9cb825d89b0a
 Author: David Gleba <dgleba@gmail.com>
 Date:   Sun Mar 19 17:07:11 2017 -0400

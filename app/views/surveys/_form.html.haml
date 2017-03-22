@@ -3,7 +3,17 @@
 
   .form-inputs
     = f.input :name
+    = f.input :sort
+    = f.input :active_status
 
+  %h3 Questions
+  #questions
+    = f.simple_fields_for :questions do |question|
+      = render 'question_fields', f: question
+    .links
+      = link_to_add_association 'add question', f, :questions
+    
+    
   .form-actions
     = f.button :submit
     &nbsp &nbsp | &nbsp &nbsp

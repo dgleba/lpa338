@@ -3,10 +3,10 @@
 
   .form-inputs
     = f.input :name
-    = f.association :question_list
-    = f.input :sort
     = f.input :qtype
     = f.association :survey
+    = f.input :sort
+    = f.input :active_status
 
   .form-actions
     = f.button :submit
